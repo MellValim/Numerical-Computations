@@ -27,7 +27,7 @@ class StaticGeodesicPlotter:
         theta, phi = np.linspace(0, 2 * np.pi, 50), np.linspace(0, np.pi, 50)
         THETA, PHI = np.meshgrid(theta, phi)
 
-        rh_outer = 1 + np.sqrt(1 - a**2) #raio do horizonte de eventos
+        rE_outer = 1 + np.sqrt(1 - (a * np.cos(THETA) ** 2))
         
         #conversão de coordenadas esféricas para cartesianas
         XH = rh_outer * np.sin(PHI) * np.cos(THETA)
